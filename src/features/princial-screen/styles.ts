@@ -52,7 +52,7 @@ export const SectionMovieSlider = styled.FlatList`
 
 export const SectionMovieSliderItem = styled.View`
   width: 160px;
-  height: 240px;
+  height: 100%;
   margin-horizontal: 8px;
   border-radius: 8px;
 `;

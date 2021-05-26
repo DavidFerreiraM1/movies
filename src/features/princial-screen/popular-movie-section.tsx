@@ -6,7 +6,6 @@ import {
   SectionMovieSlider,
   SectionMovieSliderItem,
   SectionMovieSliderContainer,
-  MovieNameText,
 } from './styles';
 
 import {AppStore} from '../../redux/interface';
@@ -29,7 +28,6 @@ export function PopularMovieSection() {
     return (
       <SectionMovieSliderItem>
         <Image height={240} width={160} url={item.posterUrl} />
-        <MovieNameText>{item.title}</MovieNameText>
       </SectionMovieSliderItem>
     );
   };
