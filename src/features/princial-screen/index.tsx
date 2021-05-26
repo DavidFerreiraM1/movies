@@ -1,17 +1,20 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import {StatusBar} from 'react-native';
+import {useDispatch} from 'react-redux';
 import BackgroundImage from '../../assets/svg/background-1.svg';
+import {popularMovieRequestAction} from '../../redux/movies/popular/action';
 
-import {
-  BackgroundRoot,
-  CardContent,
-  CardRoot,
-  Root,
-  Section,
-  styles,
-} from './styles';
+import {BackgroundRoot, CardContent, CardRoot, Root, styles} from './styles';
+import {PopularMovieSection} from './popular-movie-section';
 
 export function PrincialScreen() {
+  const dispatchAction = useDispatch();
+
+  React.useEffect(() => {
+    dispatchAction(popularMovieRequestAction());
+  }, []);
+
   return (
     <Root>
       <StatusBar
@@ -24,9 +27,7 @@ export function PrincialScreen() {
       </BackgroundRoot>
       <CardRoot>
         <CardContent contentContainerStyle={styles.cardContentContainer}>
-          <Section />
-          <Section />
-          <Section />
+          <PopularMovieSection />
         </CardContent>
       </CardRoot>
     </Root>
