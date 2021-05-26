@@ -1,6 +1,7 @@
 export interface PopularMovies {
   title: string;
   year: number;
+  posterUrl: string;
   ids: {
     trakt: number;
     slug: string;
@@ -11,6 +12,7 @@ export interface PopularMovies {
 
 export interface TrendingMovies {
   watchers: number;
+  posterUrl: string;
   movie: {
     title: string;
     year: number;
@@ -25,6 +27,7 @@ export interface TrendingMovies {
 
 export interface RecommendedMovies {
   user_count: number;
+  posterUrl: string;
   movie: {
     title: string;
     year: number;
