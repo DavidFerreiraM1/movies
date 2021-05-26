@@ -6,7 +6,7 @@ export const popularMovieRequestAction = () => {
   return action(PopularMovieTypes.LOAD_REQUEST);
 };
 
-export const popularMovieSuccessAction = (data: PopularMovies) => {
+export const popularMovieSuccessAction = (data: PopularMovies[]) => {
   return action(PopularMovieTypes.SUCCESS_REQUEST, data);
 };
 
