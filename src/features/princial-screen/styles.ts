@@ -13,22 +13,21 @@ export const BackgroundRoot = styled.View`
 `;
 
 export const CardRoot = styled.View`
-  height: 75%;
+  height: 80%;
   width: 100%;
   position: absolute;
   bottom: 1px;
 `;
 
 export const CardContent = styled.ScrollView`
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 1);
   height: 100%;
   width: 100%;
-  border-radius: 24px;
   overflow: hidden;
 `;
 
 export const SectionRoot = styled.View`
-  margin-top: 12px;
+  margin-top: 0px;
   margin-bottom: 12px;
   padding-horizontal: 8px;
   width: 100%;
@@ -36,8 +35,9 @@ export const SectionRoot = styled.View`
 `;
 
 export const SectionTitle = styled.Text`
-  color: #000000;
-  font-family: Roboto-Regular;
+  color: #ffffff;
+  font-family: Roboto-Black;
+  padding-horizontal: 8px;
   font-size: 18px;
 `;
 
