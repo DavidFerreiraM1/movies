@@ -26,8 +26,8 @@ export function DialogWithRef(
     value => {
       Animated.timing(animValue, {
         toValue: value,
-        delay: 200,
-        duration: 600,
+        delay: 100,
+        duration: 400,
         useNativeDriver: true,
       }).start();
     },
@@ -45,7 +45,7 @@ export function DialogWithRef(
         onClose();
         setRender(false);
       }
-    }, 800);
+    }, 500);
   }, [render]);
 
   React.useEffect(() => {
