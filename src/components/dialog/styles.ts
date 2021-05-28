@@ -27,7 +27,7 @@ export const DialogContentContainer = styled.View`
 
 export const DialogHeader = styled.View`
   width: 100%;
-  height: 64px;
+  height: 48px;
   align-items: flex-end;
 `;
 
