@@ -39,14 +39,19 @@ export function DialogWithRef(
   }, [render]);
 
   const handleClose = React.useCallback(() => {
-    if (onClose) {
-      onClose();
-    }
-    setRender(false);
+    execAnimation(screenHeight);
+    setTimeout(() => {
+      if (onClose) {
+        onClose();
+        setRender(false);
+      }
+    }, 800);
   }, [render]);
 
   React.useEffect(() => {
-    render ? execAnimation(0) : execAnimation(screenHeight);
+    if (render) {
+      execAnimation(0);
+    }
   }, [render]);
 
   React.useImperativeHandle(ref, () => ({

@@ -17,7 +17,7 @@ export const DialogContainer = styled.View`
 export const DialogContentContainer = styled.View`
   width: 100%;
   min-height: 164px;
-  background-color: #000000;
+  background-color: #1d1d1d;
   position: absolute;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
