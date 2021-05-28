@@ -9,8 +9,10 @@ export interface RenderItemParams {
   index: number;
 }
 
+export type FinderType = 'popular' | 'recommend';
+
 export interface MovieDetailDialogRef {
-  openDetail(item: number): void;
+  openDetail(item: number, finder: FinderType): void;
 }
 
 export interface MovieSectionProps {
@@ -20,4 +22,11 @@ export interface MovieSectionProps {
 export interface ContextInterface {
   movieId: number | null;
   setMovieId(id: number | null): void;
+}
+
+export interface MovieDetailStateData {
+  id: string;
+  urlImg: string;
+  title: string;
+  description: string;
 }
