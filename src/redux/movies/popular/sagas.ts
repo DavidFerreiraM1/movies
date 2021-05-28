@@ -5,7 +5,7 @@ import {popularMovieFailedAction, popularMovieSuccessAction} from './action';
 
 export function* pupularMovieRequestSaga() {
   try {
-    const {data} = yield TraktApi.get('movies/popular');
+    const {data} = yield TraktApi.get('movies/popular?extended=full');
 
     const resultMovies: PopularMovies[] = [];
 
