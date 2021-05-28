@@ -15,6 +15,9 @@ import {
   MovieDetailsTextBox,
   MovieDetailTitle,
   MovieDetailDescription,
+  MovieDetailBoxFavorite,
+  MovieDetailButtonFavorite,
+  MovieDetailButtonFavoriteText,
 } from './styles';
 
 function MovieDetailDialogRef(
@@ -35,13 +38,14 @@ function MovieDetailDialogRef(
 
   const openDetail = (movieId: number) => {
     const finder: any = ({ids}: PopularMovies) => ids.trakt === movieId;
-    const {posterUrl, title, ids}: any = storeMovieData.list.find(finder);
+    const {posterUrl, title, ids, overview}: any =
+      storeMovieData.list.find(finder);
 
     setData({
       id: ids.trakt,
       title,
       urlImg: posterUrl,
-      description: '',
+      description: overview,
     });
   };
 
@@ -75,6 +79,13 @@ function MovieDetailDialogRef(
                 {data.description}
               </MovieDetailDescription>
             </MovieDetailDescriptionBox>
+            <MovieDetailBoxFavorite>
+              <MovieDetailButtonFavorite>
+                <MovieDetailButtonFavoriteText>
+                  Adicionar à lista
+                </MovieDetailButtonFavoriteText>
+              </MovieDetailButtonFavorite>
+            </MovieDetailBoxFavorite>
           </MovieDetailsTextBox>
         </MovieDetailDialogContentRoot>
       </DialogContent>

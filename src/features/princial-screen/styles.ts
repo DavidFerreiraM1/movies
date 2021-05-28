@@ -63,46 +63,57 @@ export const SliderItemImage = styled.Image`
   border-radius: 8px;
 `;
 
-export const MovieNameText = styled.Text`
-  font-family: Roboto-Regular;
-  text-align-vertical: center;
-  font-size: 14px;
-  color: #000000;
-  text-align: center;
-  padding-vertical: 4px;
-`;
-
 export const MovieDetailDialogContentRoot = styled.View`
-  height: 172px;
+  height: 240px;
   width: 100%;
   flex-direction: row;
 `;
 
 export const MovieDetailsTextBox = styled.View`
   flex: 1;
-  bottom: 24px;
+  flex-direction: column;
 `;
 
 export const MovieDetailTitleBox = styled.View`
-  padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 48px;
-  padding-left: 8px;
+  padding-left: 16px;
 `;
 
 export const MovieDetailTitle = styled.Text`
   font-family: Roboto-Bold;
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
 `;
 
-export const MovieDetailDescriptionBox = styled.View`
+export const MovieDetailDescriptionBox = styled.ScrollView`
   flex: 1;
-  padding-top: 8px;
+  padding-top: 0px;
   padding-bottom: 8px;
-  padding-right: 48px;
-  padding-left: 8px;
-  background-color: green;
+  padding-right: 8px;
+  padding-left: 16px;
+`;
+
+export const MovieDetailBoxFavorite = styled.View`
+  width: 100%;
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-left: 16px;
+`;
+
+export const MovieDetailButtonFavorite = styled.TouchableOpacity`
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const MovieDetailButtonFavoriteText = styled.Text`
+  font-family: Roboto-Bold;
+  font-size: 14px;
+  color: #000000;
 `;
 
 export const MovieDetailDescription = styled.Text`
@@ -114,12 +125,11 @@ export const MovieDetailDescription = styled.Text`
 export const MovieDetailDialogImageContainer = styled.View`
   height: 100%;
   width: 124px;
-  bottom: 24px;
 `;
 
 export const MovieDetailDialogImage = styled.Image`
   width: 100%;
-  height: 100%;
+  height: 180px;
   border-radius: 8px;
 `;
 
