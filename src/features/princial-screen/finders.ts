@@ -1,6 +1,7 @@
 import {
   PopularMovies,
   RecommendedMovies,
+  TrendingMovies,
   // TrendingMovies,
 } from '../../interfaces/movies';
 import {AppStore} from '../../redux/interface';
@@ -36,17 +37,17 @@ export function recommendFinder(
   };
 }
 
-// export function trendingFinder(
-//   movieId: number,
-//   {  }: AppStore,
-// ): MovieDetailStateData {
-//   const finder = ({movie}: TrendingMovies) => movie.ids.trakt === movieId;
-//   const movieFound: any = popularMoviesObj.find(finder);
-//   const {movie, posterUrl, overview}: TrendingMovies = movieFound;
-//   return {
-//     id: movie.ids.trakt.toString(),
-//     urlImg: posterUrl,
-//     title: movie.title,
-//     description: overview,
-//   };
-// }
+export function trendingFinder(
+  movieId: number,
+  {trendingMovieReducer}: AppStore,
+): MovieDetailStateData {
+  const finder = ({movie}: TrendingMovies) => movie.ids.trakt === movieId;
+  const movieFound: any = trendingMovieReducer.list.find(finder);
+  const {movie, posterUrl}: TrendingMovies = movieFound;
+  return {
+    id: movie.ids.trakt.toString(),
+    urlImg: posterUrl,
+    title: movie.title,
+    description: movie.overview,
+  };
+}

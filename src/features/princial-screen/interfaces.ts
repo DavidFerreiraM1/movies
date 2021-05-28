@@ -9,7 +9,7 @@ export interface RenderItemParams {
   index: number;
 }
 
-export type FinderType = 'popular' | 'recommend';
+export type FinderType = 'popular' | 'recommend' | 'trending';
 
 export interface MovieDetailDialogRef {
   openDetail(item: number, finder: FinderType): void;

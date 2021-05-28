@@ -13,6 +13,8 @@ import {MovieDetailDialog} from './movie-detail-dialog-content';
 import {FinderType, MovieDetailDialogRef} from './interfaces';
 import {RecommendedMovieSection} from './recommended-movie-section';
 import {recommendedMovieRequestAction} from '../../redux/movies/recommended/action';
+import {TrendingMovieSection} from './trending-movie-section';
+import {trendingMovieRequestAction} from '../../redux/movies/trending/action';
 
 export function PrincialScreenWithRef() {
   const dispatchAction = useDispatch();
@@ -21,6 +23,7 @@ export function PrincialScreenWithRef() {
   React.useEffect(() => {
     dispatchAction(popularMovieRequestAction());
     dispatchAction(recommendedMovieRequestAction());
+    dispatchAction(trendingMovieRequestAction());
   }, []);
 
   const openMovieDetail = (finder: FinderType) => (item: number) => {
@@ -41,6 +44,7 @@ export function PrincialScreenWithRef() {
         <CardContent contentContainerStyle={styles.cardContentContainer}>
           <PopularMovieSection openDetail={openMovieDetail('popular')} />
           <RecommendedMovieSection openDetail={openMovieDetail('recommend')} />
+          <TrendingMovieSection openDetail={openMovieDetail('trending')} />
         </CardContent>
       </CardRoot>
       <MovieDetailDialog ref={movieDetailDialogRef} />
