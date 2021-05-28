@@ -23,11 +23,12 @@ import {
   MovieDetailButtonFavorite,
   MovieDetailButtonFavoriteText,
 } from './styles';
-import {popularFinder, recommendFinder} from './finders';
+import {popularFinder, recommendFinder, trendingFinder} from './finders';
 
 const finders = {
   popular: popularFinder,
   recommend: recommendFinder,
+  trending: trendingFinder,
 };
 
 function MovieDetailDialogRef(
