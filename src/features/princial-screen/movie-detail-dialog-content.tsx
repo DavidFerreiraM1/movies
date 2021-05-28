@@ -42,8 +42,8 @@ function MovieDetailDialogRef(
       storeMovieData.list.find(finder);
 
     setData({
-      id: ids.trakt,
       title,
+      id: ids.trakt,
       urlImg: posterUrl,
       description: overview,
     });
@@ -75,7 +75,7 @@ function MovieDetailDialogRef(
           <MovieDetailDialogImageContainer>
             <MovieDetailDialogImage
               source={{
-                uri: data.urlImg,
+                uri: data.urlImg !== '' ? data.urlImg : undefined,
               }}
             />
           </MovieDetailDialogImageContainer>
