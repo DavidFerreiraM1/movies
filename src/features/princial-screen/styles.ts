@@ -50,7 +50,7 @@ export const SectionMovieSlider = styled.FlatList`
   height: 100%;
 `;
 
-export const SectionMovieSliderItem = styled.View`
+export const SectionMovieSliderItem = styled.TouchableHighlight`
   width: 160px;
   height: 100%;
   margin-horizontal: 8px;
@@ -70,6 +70,12 @@ export const MovieNameText = styled.Text`
   text-align: center;
   text-align-vertical: center;
   padding-vertical: 4px;
+`;
+
+export const MovieDetailDialogContentRoot = styled.View`
+  height: 480px;
+  width: 100%;
+  background-color: red;
 `;
 
 export const styles = StyleSheet.create({
