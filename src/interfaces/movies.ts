@@ -8,6 +8,9 @@ export interface PopularMovies {
     imdb: string;
     tmdb: number;
   };
+  tagline: string;
+  overview: string;
+  released: string;
 }
 
 export interface TrendingMovies {
