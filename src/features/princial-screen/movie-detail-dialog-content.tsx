@@ -49,6 +49,15 @@ function MovieDetailDialogRef(
     });
   };
 
+  const handleClose = () => {
+    setData({
+      id: '',
+      title: '',
+      urlImg: '',
+      description: '',
+    });
+  };
+
   React.useImperativeHandle(ref, () => ({
     openDetail,
   }));
@@ -60,7 +69,7 @@ function MovieDetailDialogRef(
   }, [data]);
 
   return (
-    <Dialog ref={dialogRef}>
+    <Dialog ref={dialogRef} onClose={handleClose}>
       <DialogContent>
         <MovieDetailDialogContentRoot>
           <MovieDetailDialogImageContainer>
