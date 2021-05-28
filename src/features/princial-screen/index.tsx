@@ -7,17 +7,22 @@ import {popularMovieRequestAction} from '../../redux/movies/popular/action';
 
 import {BackgroundRoot, CardContent, CardRoot, Root, styles} from './styles';
 import {PopularMovieSection} from './popular-movie-section';
+import {renderWithContext} from '../../util/render-with-context';
+import {ContextMoviesProvider} from './context-movies';
+import {MovieDetailDialog} from './movie-detail-dialog-content';
+import {MovieDetailDialogRef} from './interfaces';
 
-import {DialogRefProps} from '../../components/dialog/interfaces';
-import {Dialog} from '../../components';
-
-export function PrincialScreen() {
-  const movieOptionsRef = React.createRef<DialogRefProps>();
+export function PrincialScreenWithRef() {
   const dispatchAction = useDispatch();
+  const movieDetailDialogRef = React.createRef<MovieDetailDialogRef>();
 
   React.useEffect(() => {
     dispatchAction(popularMovieRequestAction());
   }, []);
+
+  const openMovieDetail = (item: number) => {
+    movieDetailDialogRef.current?.openDetail(item);
+  };
 
   return (
     <Root>
@@ -31,10 +36,14 @@ export function PrincialScreen() {
       </BackgroundRoot>
       <CardRoot>
         <CardContent contentContainerStyle={styles.cardContentContainer}>
-          <PopularMovieSection />
+          <PopularMovieSection openDetail={openMovieDetail} />
         </CardContent>
       </CardRoot>
-      <Dialog ref={movieOptionsRef} />
+      <MovieDetailDialog ref={movieDetailDialogRef} />
     </Root>
   );
 }
+
+export const PrincialScreen = renderWithContext(ContextMoviesProvider)(
+  PrincialScreenWithRef,
+);
