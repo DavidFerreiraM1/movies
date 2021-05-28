@@ -8,7 +8,11 @@ import {popularMovieRequestAction} from '../../redux/movies/popular/action';
 import {BackgroundRoot, CardContent, CardRoot, Root, styles} from './styles';
 import {PopularMovieSection} from './popular-movie-section';
 
+import {DialogRefProps} from '../../components/dialog/interfaces';
+import {Dialog} from '../../components';
+
 export function PrincialScreen() {
+  const movieOptionsRef = React.createRef<DialogRefProps>();
   const dispatchAction = useDispatch();
 
   React.useEffect(() => {
@@ -30,6 +34,7 @@ export function PrincialScreen() {
           <PopularMovieSection />
         </CardContent>
       </CardRoot>
+      <Dialog ref={movieOptionsRef} />
     </Root>
   );
 }
