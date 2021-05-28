@@ -11,9 +11,10 @@ import {
 import {AppStore} from '../../redux/interface';
 import {PopularMovies} from '../../interfaces/movies';
 import {Image} from '../../components';
-import {RenderItemParams} from './interfaces';
+import {RenderItemParams, MovieSectionProps} from './interfaces';
 
-export function PopularMovieSection() {
+export function PopularMovieSection(props: MovieSectionProps) {
+  const {openDetail} = props;
   const popularMovies = useSelector(
     ({popularMovieReducer}: AppStore) => popularMovieReducer,
   );
@@ -21,8 +22,12 @@ export function PopularMovieSection() {
   const renderItem = (params: RenderItemParams) => {
     const item: PopularMovies = params.item;
 
+    const openDetailHandler = () => {
+      openDetail(item.ids.trakt);
+    };
+
     return (
-      <SectionMovieSliderItem>
+      <SectionMovieSliderItem onPress={openDetailHandler}>
         <Image height={240} width={160} url={item.posterUrl} />
       </SectionMovieSliderItem>
     );
