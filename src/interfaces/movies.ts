@@ -25,6 +25,9 @@ export interface TrendingMovies {
       imdb: string;
       tmdb: number;
     };
+    tagline: string;
+    overview: string;
+    released: string;
   };
 }
 
@@ -40,5 +43,8 @@ export interface RecommendedMovies {
       imdb: string;
       tmdb: number;
     };
+    tagline: string;
+    overview: string;
+    released: string;
   };
 }
