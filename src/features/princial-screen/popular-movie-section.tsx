@@ -11,11 +11,7 @@ import {
 import {AppStore} from '../../redux/interface';
 import {PopularMovies} from '../../interfaces/movies';
 import {Image} from '../../components';
-
-interface RenderItemParams {
-  item: any;
-  index: number;
-}
+import {RenderItemParams} from './interfaces';
 
 export function PopularMovieSection() {
   const popularMovies = useSelector(
