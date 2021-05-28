@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import {Animated, Dimensions} from 'react-native';
-import {ComponentWithProps, DialogRefProps} from './interfaces';
+import {DialogProps, DialogRefProps} from './interfaces';
 import {
   DialogCloseButton,
   DialogContainer,
@@ -14,7 +14,7 @@ import {
 const {height: screenHeight} = Dimensions.get('screen');
 
 export function DialogWithRef(
-  props: ComponentWithProps,
+  props: DialogProps,
   ref: React.Ref<DialogRefProps>,
 ) {
   const {children} = props;
@@ -76,4 +76,4 @@ export function DialogWithRef(
 }
 
 export const Dialog =
-  React.forwardRef<DialogRefProps, ComponentWithProps>(DialogWithRef);
+  React.forwardRef<DialogRefProps, DialogProps>(DialogWithRef);
