@@ -18,6 +18,7 @@ export function DialogWithRef(
   ref: React.Ref<DialogRefProps>,
 ) {
   const {children} = props;
+  const {onClose} = props;
 
   const [render, setRender] = React.useState(false);
   const [animValue] = React.useState(new Animated.Value(screenHeight));
@@ -39,7 +40,10 @@ export function DialogWithRef(
   }, [render]);
 
   const handleClose = React.useCallback(() => {
-    setRender(true);
+    if (onClose) {
+      onClose();
+    }
+    setRender(false);
   }, [render]);
 
   React.useEffect(() => {
