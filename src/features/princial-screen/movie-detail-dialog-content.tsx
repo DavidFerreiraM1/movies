@@ -3,9 +3,13 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import {Dialog, DialogContent} from '../../components';
 import {DialogRefProps} from '../../components/dialog/interfaces';
-import {PopularMovies} from '../../interfaces/movies';
 import {AppStore} from '../../redux/interface';
-import {MovieDetailDialogRef as MovieDetailDialogRefInterface} from './interfaces';
+
+import {
+  FinderType,
+  MovieDetailDialogRef as MovieDetailDialogRefInterface,
+  MovieDetailStateData,
+} from './interfaces';
 import {
   MovieDetailDialogContentRoot,
   MovieDetailDialogImage,
@@ -19,33 +23,39 @@ import {
   MovieDetailButtonFavorite,
   MovieDetailButtonFavoriteText,
 } from './styles';
+import {popularFinder, recommendFinder} from './finders';
+
+const finders = {
+  popular: popularFinder,
+  recommend: recommendFinder,
+};
 
 function MovieDetailDialogRef(
   props: any,
   ref: React.Ref<MovieDetailDialogRefInterface>,
 ) {
   const dialogRef = React.createRef<DialogRefProps>();
-  const storeMovieData = useSelector(
-    ({popularMovieReducer}: AppStore) => popularMovieReducer,
-  );
+  const storeMovieData = useSelector((store: AppStore) => store);
 
-  const [data, setData] = React.useState({
+  const [data, setData] = React.useState<MovieDetailStateData>({
     id: '',
     urlImg: '',
     title: '',
     description: '',
   });
 
-  const openDetail = (movieId: number) => {
-    const finder: any = ({ids}: PopularMovies) => ids.trakt === movieId;
-    const {posterUrl, title, ids, overview}: any =
-      storeMovieData.list.find(finder);
+  const openDetail = (movieId: number, finder: FinderType) => {
+    const finderFunction = finders[finder];
+    const {id, urlImg, title, description} = finderFunction(
+      movieId,
+      storeMovieData,
+    );
 
     setData({
       title,
-      id: ids.trakt,
-      urlImg: posterUrl,
-      description: overview,
+      id,
+      urlImg,
+      description,
     });
   };
 
