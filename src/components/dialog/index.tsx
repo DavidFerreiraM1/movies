@@ -6,7 +6,6 @@ import {
   DialogCloseButton,
   DialogContainer,
   DialogContentContainer,
-  DialogHeader,
   DialogRoot,
   styles,
 } from './styles';
@@ -66,9 +65,7 @@ export function DialogWithRef(
                 transform: [{translateY: animValue}],
               }}>
               <DialogContentContainer>
-                <DialogHeader>
-                  <DialogCloseButton onPress={handleClose} />
-                </DialogHeader>
+                <DialogCloseButton onPress={handleClose} />
                 {children}
               </DialogContentContainer>
             </Animated.View>

@@ -5,7 +5,7 @@ export const DialogRoot = styled.View`
   height: 100%;
   width: 100%;
   position: absolute;
-  z-index: 2000;
+  z-index: 3000;
   top: 0;
   background-color: rgba(0, 0, 0, 0.6);
 `;
@@ -25,18 +25,16 @@ export const DialogContentContainer = styled.View`
   bottom: 0;
 `;
 
-export const DialogHeader = styled.View`
-  width: 100%;
-  height: 48px;
-  align-items: flex-end;
-`;
-
 export const DialogCloseButton = styled.TouchableOpacity`
-  height: 48px;
-  width: 48px;
+  height: 32px;
+  width: 32px;
   border-radius: 24px;
   margin: 8px;
   background-color: red;
+  position: absolute;
+  z-index: 3000;
+  top: 0;
+  right: 0;
 `;
 
 export const DialogContent = styled.View`
