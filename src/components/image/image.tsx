@@ -20,7 +20,7 @@ export function Image(props: ImageProps) {
         onLoadEnd={() => setState({...state, isLoading: false})}
         resizeMode="cover"
         source={{
-          uri: url,
+          uri: url !== '' ? url : undefined,
         }}
       />
       {state.isLoading && (
