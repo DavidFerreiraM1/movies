@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import {traktApiKey} from './constants';
+import {traktApiKey} from '../constants/api-access';
 
 const traktBaseUrl = 'https://api.trakt.tv/';
 

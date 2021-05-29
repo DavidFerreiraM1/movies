@@ -5,7 +5,7 @@ import {
   clientSecret,
   traktApiKey,
   redirectUri,
-} from '../../http-client/constants';
+} from '../../constants/api-access';
 import {authTokenSuccessAction, authTokenFailedAction} from './action';
 
 export function* getTokenRequestSaga() {
