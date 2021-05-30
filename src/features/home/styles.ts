@@ -133,6 +133,27 @@ export const MovieDetailDialogImage = styled.Image`
   border-radius: 8px;
 `;
 
+export const MovieScreenHeader = styled.View`
+  height: 20%;
+  width: 100%;
+  padding-top: 24px;
+  position: absolute;
+  align-items: flex-end;
+  justify-content: center;
+  top: 1px;
+`;
+
+export const MovieListButtonBox = styled.View`
+  height: 48px;
+  width: 48px;
+  margin-horizontal: 8px;
+`;
+
+export const MovieListButton = styled.TouchableOpacity`
+  height: 100%;
+  width: 100%;
+`;
+
 export const styles = StyleSheet.create({
   cardContentContainer: {
     paddingVertical: 16,
