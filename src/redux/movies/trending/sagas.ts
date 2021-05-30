@@ -27,6 +27,7 @@ export function* trendingMovieRequestSaga() {
           });
       }),
     );
+
     yield put(trendingMovieSuccessAction(resultMovies));
   } catch (err) {
     yield put(trendingMovieFailedAction(err));
