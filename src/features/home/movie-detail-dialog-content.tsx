@@ -6,7 +6,6 @@ import {DialogRefProps} from '../../components/dialog/interfaces';
 import {AppStore} from '../../redux/interface';
 
 import {
-  FinderType,
   MovieDetailDialogRef as MovieDetailDialogRefInterface,
   MovieDetailStateData,
 } from './interfaces';
@@ -19,11 +18,11 @@ import {
   MovieDetailsTextBox,
   MovieDetailTitle,
   MovieDetailDescription,
-  MovieDetailBoxFavorite,
-  MovieDetailButtonFavorite,
-  MovieDetailButtonFavoriteText,
 } from './styles';
 import {popularFinder, recommendFinder, trendingFinder} from './finders';
+import {MovieListType} from '../../interfaces/movies';
+
+import ImageNotFound from '../../assets/images/not-found.jpg';
 
 const finders = {
   popular: popularFinder,
@@ -45,7 +44,7 @@ function MovieDetailDialogRef(
     description: '',
   });
 
-  const openDetail = (movieId: number, finder: FinderType) => {
+  const openDetail = (movieId: number, finder: MovieListType) => {
     const finderFunction = finders[finder];
     const {id, urlImg, title, description} = finderFunction(
       movieId,
@@ -79,16 +78,14 @@ function MovieDetailDialogRef(
     }
   }, [data]);
 
+  const ImageSource = data.urlImg !== '' ? {uri: data.urlImg} : ImageNotFound;
+
   return (
     <Dialog ref={dialogRef} onClose={handleClose}>
       <DialogContent>
         <MovieDetailDialogContentRoot>
           <MovieDetailDialogImageContainer>
-            <MovieDetailDialogImage
-              source={{
-                uri: data.urlImg !== '' ? data.urlImg : undefined,
-              }}
-            />
+            <MovieDetailDialogImage source={ImageSource} />
           </MovieDetailDialogImageContainer>
           <MovieDetailsTextBox>
             <MovieDetailTitleBox>
@@ -99,13 +96,6 @@ function MovieDetailDialogRef(
                 {data.description}
               </MovieDetailDescription>
             </MovieDetailDescriptionBox>
-            <MovieDetailBoxFavorite>
-              <MovieDetailButtonFavorite>
-                <MovieDetailButtonFavoriteText>
-                  Adicionar à lista
-                </MovieDetailButtonFavoriteText>
-              </MovieDetailButtonFavorite>
-            </MovieDetailBoxFavorite>
           </MovieDetailsTextBox>
         </MovieDetailDialogContentRoot>
       </DialogContent>
