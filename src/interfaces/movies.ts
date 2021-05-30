@@ -1,3 +1,5 @@
+export type MovieListType = 'popular' | 'recommend' | 'trending';
+
 export interface PopularMovies {
   title: string;
   year: number;
