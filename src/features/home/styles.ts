@@ -14,7 +14,7 @@ export const BackgroundRoot = styled.View`
 `;
 
 export const CardRoot = styled.View`
-  height: 80%;
+  height: 98%;
   width: 100%;
   position: absolute;
   bottom: 1px;
@@ -65,7 +65,7 @@ export const SliderItemImage = styled.Image`
 `;
 
 export const MovieDetailDialogContentRoot = styled.View`
-  height: 240px;
+  height: 200px;
   width: 100%;
   flex-direction: row;
 `;
