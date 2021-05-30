@@ -2,11 +2,9 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import {useDispatch} from 'react-redux';
-import BackgroundImage from '../../assets/svg/background-1.svg';
 import {popularMovieRequestAction} from '../../redux/movies/popular/action';
 
 import {
-  BackgroundRoot,
   CardContent,
   CardRoot,
   MovieListButtonBox,
@@ -16,8 +14,6 @@ import {
   styles,
 } from './styles';
 import {PopularMovieSection} from './popular-movie-section';
-import {renderWithContext} from '../../util/render-with-context';
-import {ContextMoviesProvider} from './context-movies';
 import {MovieDetailDialog} from './movie-detail-dialog-content';
 import {FinderType, MovieDetailDialogRef} from './interfaces';
 import {RecommendedMovieSection} from './recommended-movie-section';
@@ -29,7 +25,7 @@ import {routes} from '../../constants/router';
 import MovieListSvg from '../../assets/svg/list.svg';
 import {useNavigation} from '@react-navigation/core';
 
-export function PrincialScreenWithRef() {
+export function PrincialScreen() {
   const dispatchAction = useDispatch();
   const {navigate} = useNavigation();
 
@@ -56,9 +52,6 @@ export function PrincialScreenWithRef() {
         barStyle="light-content"
         backgroundColor="rgba(0,0,0,0)"
       />
-      <BackgroundRoot>
-        <BackgroundImage height="100%" />
-      </BackgroundRoot>
       <MovieScreenHeader>
         <MovieListButtonBox>
           <MovieListButton onPress={navigateToListMovies}>
@@ -77,7 +70,3 @@ export function PrincialScreenWithRef() {
     </Root>
   );
 }
-
-export const PrincialScreen = renderWithContext(ContextMoviesProvider)(
-  PrincialScreenWithRef,
-);
