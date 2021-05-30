@@ -1,4 +1,5 @@
 import React from 'react';
+import {MovieListType} from '../../interfaces/movies';
 
 export interface ComponentWithProps {
   children?: React.ReactNode;
@@ -9,10 +10,8 @@ export interface RenderItemParams {
   index: number;
 }
 
-export type FinderType = 'popular' | 'recommend' | 'trending';
-
 export interface MovieDetailDialogRef {
-  openDetail(item: number, finder: FinderType): void;
+  openDetail(item: number, finder: MovieListType): void;
 }
 
 export interface MovieSectionProps {
@@ -29,4 +28,8 @@ export interface MovieDetailStateData {
   urlImg: string;
   title: string;
   description: string;
+}
+
+export interface DialogMovieDetailProps {
+  setMovieOnPersonalList(movieListType: MovieListType): void;
 }
