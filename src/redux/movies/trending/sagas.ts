@@ -1,5 +1,6 @@
 import {put} from 'redux-saga/effects';
-import {FarnatApi, farnatKey, TraktApi} from '../../../http-client';
+import {fanArtKey} from '../../../constants/api-access';
+import {FarnatApi, TraktApi} from '../../../http-client';
 import {TrendingMovies} from '../../../interfaces/movies';
 import {trendingMovieFailedAction, trendingMovieSuccessAction} from './action';
 
@@ -11,7 +12,7 @@ export function* trendingMovieRequestSaga() {
 
     yield Promise.all(
       data.map(async (movie: TrendingMovies) => {
-        await FarnatApi.get(`${movie.movie.ids.tmdb}?api_key=${farnatKey}`)
+        await FarnatApi.get(`${movie.movie.ids.tmdb}?api_key=${fanArtKey}`)
           .then(res => {
             resultMovies.push({
               ...movie,
