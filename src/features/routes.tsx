@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {routes as NameRoutes} from '../constants/router';
 import {PrincialScreen} from './home';
+import {MovieListScreen} from './movie-list';
 
 const HeaderNull = () => null;
 
@@ -16,6 +17,11 @@ export function RootRouter() {
         <Stack.Screen
           name={root.HOME}
           component={PrincialScreen}
+          options={{header: HeaderNull}}
+        />
+        <Stack.Screen
+          name={root.MOVIE_LIST_SCREEN}
+          component={MovieListScreen}
           options={{header: HeaderNull}}
         />
       </Stack.Navigator>
